@@ -1,0 +1,24 @@
+// _mixins.scss
+@use 'variaveis' as *;
+
+@mixin botao-base($bg, $color) {
+  background: $bg;
+  color: $color;
+  padding: 0.9rem 1.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: $color;
+    color: $bg;
+  }
+}
+
+@mixin espacamento-padrao($mult: 1) {
+  margin: calc($espacamento-base * $mult) 0;
+  padding: calc($espacamento-base * $mult);
+}

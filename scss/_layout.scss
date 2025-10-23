@@ -1,0 +1,102 @@
+// _layout.scss
+@use 'variaveis' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0a0a0a;
+  color: $cor-branca;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background: $cor-branca;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Menu lateral */
+.menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  height: 100%;
+  width: 240px;
+  background: #0a0a0a;
+  padding: 3rem 1.5rem;
+  transition: left 0.35s ease;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
+
+  &__lista {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    list-style: none;
+  }
+
+  &__link {
+    color: $cor-branca;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $cor-secundaria;
+    }
+  }
+}
+
+#menu-toggle {
+  display: none;
+
+  &:checked ~ .menu {
+    left: 0;
+  }
+}
+
+/* Responsividade */
+@media (min-width: 900px) {
+  .menu {
+    position: static;
+    height: auto;
+    width: auto;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+
+    &__lista {
+      flex-direction: row;
+      gap: 1.8rem;
+    }
+  }
+
+  .header__toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .header__toggle {
+    display: flex;
+  }
+}
